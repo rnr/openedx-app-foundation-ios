@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Vladimir Chekyrta on 03.10.2023.
+  
+*/
+
+"DATE.COURSE_STARTS" = "Course Starts";
+"DATE.COURSE_ENDS" = "Course Ends";
+"DATE.COURSE_ENDED" = "Course Ended";
+
+"DATE.ENDED" = "Ended";
+"DATE.START" = "Start";
+"DATE.STARTED" = "Started";
+"DATE.JUST_NOW" = "Just now";
+"DATE.TODAY" = "Today";
+"DATE.NEXT" = "Next %@";
+"DATE.DAYS_AGO" = "%@ Days Ago";
+"DATE.DUE" = "Due ";
+"DATE.DUE_IN" = "Due in ";
+"DATE.DUE_IN_DAYS" = "Due in %@ Days";
+"DATE_FORMAT.MMMM_DD" = "MMMM dd";
+"DATE_FORMAT.MMM_DD_YYYY" = "MMM dd, yyyy";
+"DATE_FORMAT.MMMM_DD_YYYY" = "MMMM dd, yyyy";
+"TOMORROW" = "Tomorrow";
+"YESTERDAY" = "Yesterday";

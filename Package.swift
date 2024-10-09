@@ -19,8 +19,7 @@ let package = Package(
         .package(url: "https://github.com/Alamofire/Alamofire.git", exact: "5.8.0"),
         .package(url: "https://github.com/onevcat/Kingfisher.git", exact: "7.9.1"),
         .package(url: "https://github.com/siteline/swiftui-introspect", from: "1.3.0"),
-        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.9.1"),
-        .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", exact: "6.6.0")
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.9.1")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -32,9 +31,6 @@ let package = Package(
                 .product(name: "Kingfisher", package: "Kingfisher"),
                 .product(name: "SwiftUIIntrospect", package: "swiftui-introspect"),
                 .product(name: "Swinject", package: "Swinject")
-            ],
-            plugins: [
-                .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin")
             ]
         ),
         .testTarget(

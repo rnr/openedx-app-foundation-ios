@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIResponder {
+public extension UIResponder {
     static var currentFirstResponder: UIResponder? {
         _currentFirstResponder = nil
         UIApplication.shared.sendAction(#selector(UIResponder.findFirstResponder(_:)), to: nil, from: nil, for: nil)

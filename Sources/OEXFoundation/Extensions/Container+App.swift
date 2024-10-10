@@ -10,7 +10,7 @@ import Swinject
 import UIKit
 
 public extension Container {
-    @MainActor static var shared: Container = {
+    static nonisolated(unsafe) let shared: Container = {
         let container = Container()
         return container
     }()

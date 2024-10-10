@@ -8,8 +8,8 @@
 import Foundation
 import StoreKit
 
-extension SKStoreReviewController {
-    @MainActor public static func requestReviewInCurrentScene() {
+public extension SKStoreReviewController {
+    @MainActor static func requestReviewInCurrentScene() {
         if let scene = UIApplication.shared.connectedScenes
             .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
             DispatchQueue.main.async {

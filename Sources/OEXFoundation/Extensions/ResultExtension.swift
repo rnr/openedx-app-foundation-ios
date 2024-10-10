@@ -7,15 +7,15 @@
 
 import Foundation
 
-extension Result {
+public extension Result {
     @discardableResult
-    public func success(_ handler: (Success) -> Void) -> Self {
+    func success(_ handler: (Success) -> Void) -> Self {
         guard case let .success(value) = self else { return self }
         handler(value)
         return self
     }
     @discardableResult
-    public func failure(_ handler: (Failure) -> Void) -> Self {
+    func failure(_ handler: (Failure) -> Void) -> Self {
         guard case let .failure(error) = self else { return self }
         handler(error)
         return self

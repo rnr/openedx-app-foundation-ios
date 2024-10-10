@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Thread {
+public extension Thread {
 
     var threadName: String {
         if let currentOperationQueue = OperationQueue.current?.name {

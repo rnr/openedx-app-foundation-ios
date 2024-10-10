@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     func enclosingScrollView() -> UIScrollView? {
         var next: UIView? = self
 

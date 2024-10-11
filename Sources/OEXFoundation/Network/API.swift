@@ -268,7 +268,11 @@ extension Encodable {
             with: data,
             options: .fragmentsAllowed
         ) as? [String: Any] else {
-            throw NSError()
+            throw NSError(
+                domain: "com.oexfoundation.error",
+                code: 1,
+                userInfo: [NSLocalizedDescriptionKey: "Failed to convert to dictionary"]
+            )
         }
         return dictionary
     }

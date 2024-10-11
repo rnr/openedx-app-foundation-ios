@@ -16,4 +16,3 @@ public extension Notification {
         case isForced
     }
 }
-

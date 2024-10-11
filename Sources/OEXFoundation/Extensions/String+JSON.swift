@@ -5,7 +5,6 @@
 //  Created by Ivan Stepanok on 07.10.2024.
 //
 
-
 import Foundation
 
 public extension String {

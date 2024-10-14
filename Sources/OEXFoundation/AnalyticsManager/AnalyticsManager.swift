@@ -8,14 +8,14 @@
 import Foundation
 import Swinject
 
-protocol AnalyticsService {
+public protocol AnalyticsService {
     func identify(id: String, username: String?, email: String?)
     func logEvent(_ event: AnalyticsEvent, parameters: [String: Any]?)
     func logScreenEvent(_ event: AnalyticsEvent, parameters: [String: Any]?)
 }
 
 // swiftlint:disable type_body_length file_length
-class AnalyticsManager: AuthorizationAnalytics,
+public class AnalyticsManager: AuthorizationAnalytics,
                         MainScreenAnalytics,
                         DiscoveryAnalytics,
                         DashboardAnalytics,
@@ -25,7 +25,7 @@ class AnalyticsManager: AuthorizationAnalytics,
                         CoreAnalytics,
                         WhatsNewAnalytics {
     
-    private(set) var services: [AnalyticsService] = []
+    public private(set) var services: [AnalyticsService] = []
     
     // Init Analytics Manager
 //    public init(config: ConfigProtocol) {

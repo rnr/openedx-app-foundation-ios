@@ -1,61 +1,11 @@
 //
-//  CoreAnalytics.swift
+//  AnalyticsEvent.swift
 //  Core
 //
 //  Created by Saeed Bashir on 3/6/24.
 //
 
 import Foundation
-
-//sourcery: AutoMockable
-public protocol CoreAnalytics {
-    func trackEvent(_ event: AnalyticsEvent, parameters: [String: Any]?)
-    func trackEvent(_ event: AnalyticsEvent, biValue: EventBIValue, parameters: [String: Any]?)
-    func trackScreenEvent(_ event: AnalyticsEvent, parameters: [String: Any]?)
-    func trackScreenEvent(_ event: AnalyticsEvent, biValue: EventBIValue, parameters: [String: Any]?)
-    func appreview(_ event: AnalyticsEvent, biValue: EventBIValue, action: String?, rating: Int?)
-    func videoQualityChanged(
-        _ event: AnalyticsEvent,
-        bivalue: EventBIValue,
-        value: String,
-        oldValue: String
-    )
-}
-
-public extension CoreAnalytics {
-    func trackEvent(_ event: AnalyticsEvent) {
-        trackEvent(event, parameters: nil)
-    }
-    
-    func trackEvent(_ event: AnalyticsEvent, biValue: EventBIValue) {
-        trackEvent(event, biValue: biValue, parameters: nil)
-    }
-    
-    func trackScreenEvent(_ event: AnalyticsEvent) {
-        trackScreenEvent(event, parameters: nil)
-    }
-    
-    func trackScreenEvent(_ event: AnalyticsEvent, biValue: EventBIValue) {
-        trackScreenEvent(event, biValue: biValue, parameters: nil)
-    }
-}
-
-#if DEBUG
-public class CoreAnalyticsMock: CoreAnalytics {
-    public init() {}
-    public func trackEvent(_ event: AnalyticsEvent, parameters: [String: Any]? = nil) {}
-    public func trackEvent(_ event: AnalyticsEvent, biValue: EventBIValue, parameters: [String: Any]?) {}
-    public func trackScreenEvent(_ event: AnalyticsEvent, parameters: [String: Any]?) {}
-    public func trackScreenEvent(_ event: AnalyticsEvent, biValue: EventBIValue, parameters: [String: Any]?) {}
-    public func appreview(_ event: AnalyticsEvent, biValue: EventBIValue, action: String? = nil, rating: Int? = 0) {}
-    public func videoQualityChanged(
-        _ event: AnalyticsEvent,
-        bivalue: EventBIValue,
-        value: String,
-        oldValue: String
-    ) {}
-}
-#endif
 
 public enum AnalyticsEvent: String {
     case launch = "Launch"
@@ -227,50 +177,4 @@ public enum EventBIValue: String {
     case logistrationSignIn = "edx.bi.app.logistration.signin"
     case logistrationRegister = "edx.bi.app.logistration.register"
     case profileEdit = "edx.bi.app.profile.edit"
-}
-
-public struct EventParamKey {
-    public static let courseID = "course_id"
-    public static let courseName = "course_name"
-    public static let topicID = "topic_id"
-    public static let topicName = "topic_name"
-    public static let blockID = "block_id"
-    public static let blockName = "block_name"
-    public static let method = "method"
-    public static let label = "label"
-    public static let coursesCount = "courses_count"
-    public static let force = "force"
-    public static let success = "success"
-    public static let category = "category"
-    public static let appVersion = "app_version"
-    public static let name = "name"
-    public static let link = "link"
-    public static let url = "url"
-    public static let screenName = "screen_name"
-    public static let alertAction = "alert_action"
-    public static let action = "action"
-    public static let searchQuery = "search_query"
-    public static let value = "value"
-    public static let oldValue = "old_value"
-    public static let rating = "rating"
-    public static let bannerType = "banner_type"
-    public static let courseSection = "course_section"
-    public static let courseSubsection = "course_subsection"
-    public static let noOfVideos = "number_of_videos"
-    public static let supported = "supported"
-    public static let conversion = "conversion"
-    public static let enrollmentMode = "enrollment_mode"
-    public static let pacing = "pacing"
-    public static let dialog = "dialog"
-    public static let snackbar = "snackbar"
-}
-
-public struct EventCategory {
-    public static let appreviews = "app-reviews"
-    public static let whatsNew = "whats_new"
-    public static let courseDates = "course_dates"
-    public static let discovery = "discovery"
-    public static let profile = "profile"
-    public static let video = "video"
-    public static let course = "course"
 }

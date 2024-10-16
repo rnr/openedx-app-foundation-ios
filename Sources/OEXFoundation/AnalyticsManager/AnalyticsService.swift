@@ -1,0 +1,15 @@
+//
+//  AnalyticsManager.swift
+//  OpenEdX
+//
+//  Created by  Stepanok Ivan on 27.06.2023.
+//
+
+import Foundation
+import Swinject
+
+public protocol AnalyticsService {
+    func identify(id: String, username: String?, email: String?)
+    func logEvent(_ event: AnalyticsEvent, parameters: [String: Any]?)
+    func logScreenEvent(_ event: AnalyticsEvent, parameters: [String: Any]?)
+}

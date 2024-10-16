@@ -24,7 +24,7 @@ public extension UIApplication {
     }
     
     class func topViewController(
-        controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController
+        controller: UIViewController? = UIApplication.shared.oexKeyWindow?.rootViewController
     ) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
             return topViewController(controller: navigationController.visibleViewController)

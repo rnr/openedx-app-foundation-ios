@@ -10,6 +10,6 @@ import Swinject
 
 public protocol AnalyticsService {
     func identify(id: String, username: String?, email: String?)
-    func logEvent(_ event: AnalyticsEvent, parameters: [String: Any]?)
-    func logScreenEvent(_ event: AnalyticsEvent, parameters: [String: Any]?)
+    func logEvent(_ event: String, parameters: [String: Any]?)
+    func logScreenEvent(_ event: String, parameters: [String: Any]?)
 }

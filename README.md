@@ -1,6 +1,6 @@
 # OEXFoundation Integration on iOS
 
-**OEXFoundation** is a core library providing essential dependencies, extensions, utilities, and interfaces for building plugins within the OpenEdX iOS ecosystem. This library allows developers to extend the functionality of OpenEdX by creating plugins that integrate seamlessly into the platform.
+**OEXFoundation** is a core library providing essential dependencies, extensions, utilities, and protocols for building plugins within the OpenEdX iOS ecosystem. This library allows developers to extend the functionality of OpenEdX by creating plugins that integrate seamlessly into the platform.
 
 ### Step 1: Installation
 **OEXFoundation** is distributed exclusively via Swift Package Manager (SPM). To add it to your project:
@@ -10,6 +10,7 @@
 - Enter the repository URL for **OEXFoundation.**
 - Choose the version you need (ensure it matches the version used in any plugins you include).
 - Select Add Package.
+
 **2. Using Package.swift:**
 If you're using a Package.swift file, add OEXFoundation to your dependencies:
 ```swift
@@ -61,7 +62,6 @@ import OEXFoundation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
     private let pluginManager = PluginManager()
 
     func application(

@@ -15,8 +15,8 @@ jobs:
 
       - name: Setup
         run:
-          brew install swiftlint
+          xcodes select 16.0
 
       - name: SwiftLint
         run:
-          swiftlint lint --reporter github-actions-logging
+          swift package plugin swiftlint --reporter github-actions-logging

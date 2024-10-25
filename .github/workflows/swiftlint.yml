@@ -19,4 +19,15 @@ jobs:
 
       - name: SwiftLint
         run:
-          swift package plugin swiftlint --reporter github-actions-logging
+          swift package plugin --allow-writing-to-package-directory swiftlint --reporter sarif --output swiftlint.report.sarif
+
+      - name: Prepare swiftlint.report.sarif
+        if: success() || failure()
+        run:
+          swift PrepareSarifToUpload.swift
+
+      - name: Upload report
+        uses: github/codeql-action/upload-sarif@v3
+        if: success() || failure()
+        with:
+          sarif_file: swiftlint.report.sarif

@@ -15,7 +15,7 @@
 If you're using a Package.swift file, add OEXFoundation to your dependencies:
 ```swift
 dependencies: [
-    .package(url: "https://github.com/raccoongang/openedx-app-foundation-ios.git", from: "1.0.0")
+    .package(url: "https://github.com/openedx/openedx-app-foundation-ios.git", from: "1.0.0")
 ],
 ```
 

@@ -15,7 +15,7 @@ jobs:
 
       - name: Setup
         run:
-          xcodes select 16.0
+          xcodes select 16.1
 
       - name: Build
         run:

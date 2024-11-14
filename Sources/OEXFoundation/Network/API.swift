@@ -9,10 +9,10 @@ import Foundation
 import Alamofire
 import WebKit
 
-public final class API {
+public final class API: Sendable {
     
-    let session: Alamofire.Session
-    let baseURL: URL
+    private let session: Alamofire.Session
+    private let baseURL: URL
     
     public init(session: Session, baseURL: URL) {
         self.session = session
@@ -197,17 +197,15 @@ public enum APIError: Int, LocalizedError {
     }
 }
 
-public struct CustomValidationError: LocalizedError {
+public struct CustomValidationError: LocalizedError, Sendable {
     public let statusCode: Int
-    public let data: [String: Any]?
+    public let data: [String: any Any & Sendable]?
     
-    public init(statusCode: Int, data: [String: Any]?) {
+    public init(statusCode: Int, data: [String: any Any & Sendable]?) {
         self.statusCode = statusCode
         self.data = data
     }
 }
-
-extension CustomValidationError: @unchecked Sendable {}
 
 extension DataRequest {
     func validateResponse() -> Self {
@@ -223,7 +221,7 @@ extension DataRequest {
                 if let data {
                     if let dataString = String(data: data, encoding: .utf8) {
                         if dataString.first == "{" && dataString.last == "}" {
-                            let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                            let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: any Any & Sendable]
                             return .failure(CustomValidationError(statusCode: response.statusCode, data: json))
                         } else {
                             let reason: AFError.ResponseValidationFailureReason

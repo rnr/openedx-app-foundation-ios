@@ -221,7 +221,10 @@ extension DataRequest {
                 if let data {
                     if let dataString = String(data: data, encoding: .utf8) {
                         if dataString.first == "{" && dataString.last == "}" {
-                            let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: any Any & Sendable]
+                            let json = try? JSONSerialization.jsonObject(
+                                with: data,
+                                options: []
+                            ) as? [String: any Any & Sendable]
                             return .failure(CustomValidationError(statusCode: response.statusCode, data: json))
                         } else {
                             let reason: AFError.ResponseValidationFailureReason

@@ -17,8 +17,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", exact: "5.8.0"),
-        .package(url: "https://github.com/onevcat/Kingfisher.git", exact: "7.9.1"),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", exact: "5.10.1"),
+        .package(url: "https://github.com/onevcat/Kingfisher.git", exact: "8.1.0"),
         .package(url: "https://github.com/siteline/swiftui-introspect", from: "1.3.0"),
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.9.1"),
         .package(url: "https://github.com/SimplyDanny/SwiftLintPlugins", from: "0.57.0")

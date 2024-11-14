@@ -262,12 +262,12 @@ public struct CustomGetEncoding: ParameterEncoding {
 }
 
 extension Encodable {
-    func asDictionary() throws -> [String: Any] {
+    func asDictionary() throws -> [String: any Any & Sendable] {
         let data = try JSONEncoder().encode(self)
         guard let dictionary = try JSONSerialization.jsonObject(
             with: data,
             options: .fragmentsAllowed
-        ) as? [String: Any] else {
+        ) as? [String: any Any & Sendable] else {
             throw NSError(
                 domain: "com.oexfoundation.error",
                 code: 1,

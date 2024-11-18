@@ -7,8 +7,12 @@
 
 import Foundation
 
-public func doAfter(_ delay: TimeInterval? = nil, _ closure: @Sendable @escaping () -> Void) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + (delay ?? 0), execute: closure)
+@MainActor
+public func doAfter(_ delay: TimeInterval? = nil, _ closure: @escaping () -> Void) {
+    Task {
+        try? await Task.sleep(for: .milliseconds((delay ?? 0) * 1000))
+        closure()
+    }
 }
 
 public func dispatchQueueMain(_ closure: @Sendable @escaping () -> Void) {

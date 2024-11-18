@@ -19,9 +19,10 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", exact: "5.10.1"),
         .package(url: "https://github.com/onevcat/Kingfisher.git", exact: "8.1.0"),
-        .package(url: "https://github.com/siteline/swiftui-introspect", from: "1.3.0"),
-        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.9.1"),
-        .package(url: "https://github.com/SimplyDanny/SwiftLintPlugins", from: "0.57.0")
+        .package(url: "https://github.com/siteline/swiftui-introspect", exact: "1.3.0"),
+        .package(url: "https://github.com/Swinject/Swinject.git", exact: "2.9.1"),
+        .package(url: "https://github.com/SimplyDanny/SwiftLintPlugins", exact: "0.57.0"),
+        .package(url: "https://github.com/evgenyneu/keychain-swift.git", exact: "24.0.0")
     ],
     targets: [
         .target(
@@ -30,7 +31,8 @@ let package = Package(
                 .product(name: "Alamofire", package: "Alamofire"),
                 .product(name: "Kingfisher", package: "Kingfisher"),
                 .product(name: "SwiftUIIntrospect", package: "swiftui-introspect"),
-                .product(name: "Swinject", package: "Swinject")
+                .product(name: "Swinject", package: "Swinject"),
+                .product(name: "KeychainSwift", package: "keychain-swift")
             ],
             plugins: [
                 .plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLintPlugins")

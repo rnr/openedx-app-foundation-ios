@@ -14,7 +14,7 @@ public protocol PushNotificationsProvider {
     func refreshToken()
 }
 
-protocol PushNotificationsListener {
+public protocol PushNotificationsListener {
     func shouldListenNotification(userinfo: [AnyHashable: Any]) -> Bool
     func didReceiveRemoteNotification(userInfo: [AnyHashable: Any])
 }

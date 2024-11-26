@@ -10,4 +10,5 @@ import UIKit
 
 public protocol DeepLinkManagerProtocol {
     func processLinkFrom(userInfo: [AnyHashable: Any])
+    func processDeepLink(with params: [AnyHashable: Any]?)
 }

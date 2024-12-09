@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public protocol DeepLinkManagerProtocol {
+public protocol DeepLinkManagerProtocol: Sendable {
     func processLinkFrom(userInfo: [AnyHashable: Any])
     func processDeepLink(with params: [AnyHashable: Any]?)
 }

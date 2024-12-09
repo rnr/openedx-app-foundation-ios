@@ -7,14 +7,15 @@
 
 import Foundation
 
-public protocol PushNotificationsProvider {
+public protocol PushNotificationsProvider: Sendable {
     func didRegisterWithDeviceToken(deviceToken: Data)
     func didFailToRegisterForRemoteNotificationsWithError(error: Error)
     func synchronizeToken()
     func refreshToken()
 }
 
-public protocol PushNotificationsListener {
+@MainActor
+public protocol PushNotificationsListener: Sendable {
     func shouldListenNotification(userinfo: [AnyHashable: Any]) -> Bool
     func didReceiveRemoteNotification(userInfo: [AnyHashable: Any])
 }

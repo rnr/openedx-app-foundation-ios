@@ -15,6 +15,6 @@ public protocol DeepLinkManagerProtocol: Sendable {
 }
 
 public class DeepLinkManagerProtocolMock: DeepLinkManagerProtocol {
-    public func processLinkFrom(userInfo: [AnyHashable : Any]) {}
-    public func processDeepLink(with params: [AnyHashable : Any]?) {}
+    public func processLinkFrom(userInfo: [AnyHashable: Any]) {}
+    public func processDeepLink(with params: [AnyHashable: Any]?) {}
 }

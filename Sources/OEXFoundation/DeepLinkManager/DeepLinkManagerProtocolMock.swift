@@ -8,7 +8,7 @@
 import Foundation
 
 public class DeepLinkManagerProtocolMock: DeepLinkManagerProtocol {
-    public var processLinkFromUserInfo: [AnyHashable : Any] = [:]
+    public var processLinkFromUserInfo: [AnyHashable: Any] = [:]
     public var processLinkFromCallsCount: Int = 0
     
     public func processLinkFrom(userInfo: [AnyHashable: Any]) {
@@ -16,7 +16,7 @@ public class DeepLinkManagerProtocolMock: DeepLinkManagerProtocol {
         processLinkFromUserInfo = userInfo
     }
     
-    public var processDeepLinkUserInfo: [AnyHashable : Any]?
+    public var processDeepLinkUserInfo: [AnyHashable: Any]?
     public var processDeepLinkCallsCount: Int = 0
 
     public func processDeepLink(with params: [AnyHashable: Any]?) {

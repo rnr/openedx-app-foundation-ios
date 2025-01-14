@@ -9,9 +9,12 @@ import Foundation
 
 public protocol PushNotificationsProvider: Sendable {
     func didRegisterWithDeviceToken(deviceToken: Data)
-    func didFailToRegisterForRemoteNotificationsWithError(error: Error)
-    func synchronizeToken()
-    func refreshToken()
+}
+
+extension PushNotificationsProvider {
+    func didFailToRegisterForRemoteNotificationsWithError(error: Error) {}
+    func synchronizeToken() {}
+    func refreshToken() {}
 }
 
 @MainActor

@@ -7,7 +7,8 @@ let package = Package(
     name: "OEXFoundation",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v16)
+        .iOS(.v16),
+        .macOS(.v12)
     ],
     products: [
         .library(

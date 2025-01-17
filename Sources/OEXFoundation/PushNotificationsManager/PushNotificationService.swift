@@ -11,7 +11,7 @@ public protocol PushNotificationsProvider: Sendable {
     func didRegisterWithDeviceToken(deviceToken: Data)
 }
 
-extension PushNotificationsProvider {
+public extension PushNotificationsProvider {
     func didFailToRegisterForRemoteNotificationsWithError(error: Error) {}
     func synchronizeToken() {}
     func refreshToken() {}

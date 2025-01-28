@@ -11,4 +11,6 @@ public protocol IAPServiceProtocol {
     func someTestView() -> any View
 }
 
-public protocol IAPManagerProtocol {}
+public protocol IAPManagerProtocol {
+    func testView() -> any View
+}

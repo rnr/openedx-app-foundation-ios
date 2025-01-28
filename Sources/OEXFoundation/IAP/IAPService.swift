@@ -8,6 +8,6 @@
 import SwiftUI
 
 public protocol IAPServiceProtocol {
-    associatedtype V: View
-    func someTestView() -> V
+    associatedtype ContentView: View
+    func someTestView() -> ContentView
 }

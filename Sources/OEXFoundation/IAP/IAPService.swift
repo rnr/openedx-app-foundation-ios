@@ -24,7 +24,6 @@ public struct ViewRepresentable: UIViewRepresentable {
 @MainActor
 public protocol IAPServiceProtocol {
     func someTestView() -> UIView?
-//    @ViewBuilder @MainActor @preconcurrency var body: Self.ContentView { get }
 }
 
 public struct IAPCommonService: IAPServiceProtocol {

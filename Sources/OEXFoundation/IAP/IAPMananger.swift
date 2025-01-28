@@ -10,3 +10,5 @@ import SwiftUI
 public protocol IAPServiceProtocol {
     func someTestView() -> any View
 }
+
+public protocol IAPManagerProtocol {}

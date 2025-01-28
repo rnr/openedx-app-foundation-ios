@@ -11,3 +11,10 @@ public protocol IAPServiceProtocol {
     associatedtype ContentView: View
     func someTestView() -> ContentView
 }
+
+public struct IAPCommonService: IAPServiceProtocol {
+    public init() {}
+    public func someTestView() -> some View {
+        EmptyView()
+    }
+}

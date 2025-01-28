@@ -13,4 +13,6 @@ public protocol IAPServiceProtocol {
 //    @ViewBuilder var someTestView: any View { get }
 }
 
-public protocol IAPManagerProtocol {}
+public protocol IAPManagerProtocol {
+    func testView() -> any View
+}

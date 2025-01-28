@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public protocol IAPServiceProtocol: View {
+public protocol IAPServiceProtocol {
     associatedtype ContentView: View
     func someTestView() -> ContentView
 }

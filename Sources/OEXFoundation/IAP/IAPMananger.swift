@@ -12,4 +12,6 @@ public protocol IAPServiceProtocol {
     func someTestView() -> V
 }
 
-public protocol IAPManagerProtocol {}
+public protocol IAPManagerProtocol {
+    var iapService: (any IAPServiceProtocol)? { get }
+}

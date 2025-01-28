@@ -8,11 +8,10 @@
 import SwiftUI
 
 public protocol IAPServiceProtocol {
-    associatedtype GeneratedView: View
-    func someTestView() -> GeneratedView
+//    func someTestView() -> any View
+    @ViewBuilder var someTestView: any View { get }
 }
 
 public protocol IAPManagerProtocol {
-    associatedtype GeneratedView: View
-    func testView() -> GeneratedView
+//    func testView() -> any View
 }

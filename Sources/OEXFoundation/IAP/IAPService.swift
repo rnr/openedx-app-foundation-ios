@@ -23,13 +23,13 @@ public struct ViewRepresentable: UIViewRepresentable {
 
 @MainActor
 public protocol IAPServiceProtocol {
-    func someTestView() -> UIView
+    func someTestView() -> UIView?
 //    @ViewBuilder @MainActor @preconcurrency var body: Self.ContentView { get }
 }
 
 public struct IAPCommonService: IAPServiceProtocol {
     public init() {}
-    public func someTestView() -> UIView {
-        UIHostingController(rootView: EmptyView()).view
+    public func someTestView() -> UIView? {
+        nil
     }
 }

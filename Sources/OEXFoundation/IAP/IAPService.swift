@@ -11,7 +11,3 @@ public protocol IAPServiceProtocol {
     associatedtype V: View
     func someTestView() -> V
 }
-
-public protocol IAPManagerProtocol {
-    var iapService: (any IAPServiceProtocol)? { get }
-}

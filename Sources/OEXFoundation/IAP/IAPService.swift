@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// ------- V1 ---------
 public struct ViewRepresentable: UIViewRepresentable {
     var uiView: UIView
     
@@ -31,4 +32,9 @@ public struct IAPCommonService: IAPServiceProtocol {
     public func someTestView() -> UIView? {
         nil
     }
+}
+
+// ------- V2 ---------
+public protocol V2IAPServiceProtocol {
+    func someTestView() -> AnyView
 }

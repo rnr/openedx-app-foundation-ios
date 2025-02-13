@@ -14,6 +14,5 @@ public extension Notification.Name {
 public extension Notification {
     enum UserInfoKey: String {
         case isForced
-        case status
     }
 }

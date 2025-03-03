@@ -30,7 +30,6 @@ public extension Error {
 }
 
 public extension Error {
-
     var errorCode: Int {
         guard let afError = self.asAFError else {
             return (self as NSError).code

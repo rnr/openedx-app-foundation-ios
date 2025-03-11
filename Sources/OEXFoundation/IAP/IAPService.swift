@@ -41,7 +41,7 @@ public struct AnyIAPService: AnyIAPServiceProtocol {
             return service.dashboardPrimaryCardButton(configuration: config)
         }
         
-        _courseButton = {@MainActor config in
+        _courseButton = { config in
             guard let config = config as? Service.Configuration else {
                 return nil
             }

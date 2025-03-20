@@ -13,9 +13,14 @@ public protocol IAPProduct: Sendable {}
 /// A protocol that represents information about an in-app purchase product. Like sku or product id in store.
 public protocol IAPProductInfo: Sendable {}
 
+/// An error for provider
+public enum IAPProductProviderError: Error {
+    case noBlockToRequestInfo
+}
+
 /// A struct that provides methods for managing in-app purchase products and their information.
-public struct IAPProductProvider<Product: IAPProduct, Info: IAPProductInfo> {
-    public typealias RequestInfoBlock = @Sendable (Product) async -> Info?
+public struct IAPProductProvider<Product: IAPProduct, Info: IAPProductInfo>: Sendable {
+    public typealias RequestInfoBlock = @Sendable (Product) async throws -> Info
     public typealias ProductBlock = @Sendable (Any) -> Product?
     
     private let requestBlock: RequestInfoBlock?
@@ -40,11 +45,11 @@ public struct IAPProductProvider<Product: IAPProduct, Info: IAPProductInfo> {
     /// An async/await method to request information for a given product.
     /// - Parameter product: The product to request information for.
     /// - Returns: The requested `Info`.
-    public func requestInfo(for product: Product) async -> Info? {
+    public func requestInfo(for product: Product) async throws -> Info {
         if let requestBlock {
-            return await requestBlock(product)
+            return try await requestBlock(product)
         }
-        return nil
+        throw IAPProductProviderError.noBlockToRequestInfo
     }
 }
 

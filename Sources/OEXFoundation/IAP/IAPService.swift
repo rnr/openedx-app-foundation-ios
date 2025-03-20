@@ -31,7 +31,7 @@ public struct IAPProductProvider<Product: IAPProduct, Info: IAPProductInfo>: Sen
     ///   - request: An async/await function to request information for a product.
     ///   - product: A function to convert an `Any` type into a `Product`.
     public init(request: @escaping RequestInfoBlock, product: @escaping ProductBlock) {
-        requestBlock = nil
+        requestBlock = request
         productBlock = product
     }
 

@@ -13,6 +13,12 @@ public protocol IAPProduct: Sendable {}
 /// A protocol that represents information about an in-app purchase product. Like sku or product id in store.
 public protocol IAPProductInfo: Sendable {}
 
+public protocol IAPPurchaseResult: Sendable {
+    var isSuccess: Bool { get }
+    var receipt: String? { get }
+    var error: Error? { get }
+}
+
 /// An error for provider
 public enum IAPProductProviderError: Error {
     case noBlockToRequestInfo
@@ -66,11 +72,34 @@ public protocol IAPServiceProtocol {
     /// Converts an `Any` type into a `Product` using the provider's product block.
     /// - Parameter object: The object to convert.
     /// - Returns: A `Product` instance.
+    ///
+    /// To retrieve value you can use `product(for:)` from `provider`.
+    /// ```swift
+    /// let product = provider.product(for: object)
+    /// ```
     func product(for object: Any) -> Product?
     
     /// Initiates a purchase for the specified product.
     /// - Parameter product: The product to purchase.
-    func buy(product: Product) // Will return payment result.
+    /// - Returns: An object that implement `IAPPurchaseResult` protocol.
+    func buy(product: Product) -> IAPPurchaseResult
+    
+    /// Initiates a getting info for specified product.
+    /// - Parameter object: The object to get purchasing info like price, accessibility and etc.
+    /// - Returns: An object that implement `IAPProductInfo` protocol.
+    ///
+    /// In a service that will implement `IAPServiceProtocol` you can add a check to see if the given
+    /// object is an `IAPProduct`, if not then you can call the `product(for:)` function. Example:
+    /// ```swift
+    ///     struct SomeProduct: IAPProduct {}
+    ///     ....
+    ///     if let product = object as? SomeProduct {
+    ///         return try await provider.info(for: product)
+    ///     } else if let product = product(for: object){
+    ///         return try await provider.info(for: product)
+    ///     }
+    /// ```
+    func info(for object: Any) async throws -> ProductInfo
     
     /// Returns a SwiftUI view for a given object.
     /// - Parameter object: The object to create a view for.
